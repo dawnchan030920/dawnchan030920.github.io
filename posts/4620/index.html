@@ -9,7 +9,7 @@
     
     <title>
         
-            通用技术学考知识表 |
+            Hexo和GitHub Pages自动化 |
         
         Dawn Chan&#39;s
     </title>
@@ -27,80 +27,12 @@
 
 
 <body>
-.progress-bar-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: $z-index-9;
+<div class="progress-bar-container">
+    
 
-  if (hexo-config('pjax.enable') == true) {
+    
+</div>
 
-    .pjax-progress-bar {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 2px;
-      width: 0;
-      background: var(--pjax-progress-bar-color);
-      visibility: hidden;
-      opacity: 0;
-      z-index: $z-index-8;
-      transition-t("width", "0", "0.1", "linear");
-
-
-      &.show {
-        opacity: 1;
-        visibility: visible;
-      }
-    }
-
-
-    .pjax-progress-icon {
-      position: absolute;
-      top: 0;
-      right: 0;
-      z-index: $z-index-8;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 7px 6px 0 0;
-      visibility: hidden;
-      font-size: 1.1rem;
-      color: var(--default-text-color);
-
-      +keep-tablet() {
-        padding: 6px 5px 0 0;
-        font-size: 1rem;
-      }
-
-      &.show {
-        visibility: visible;
-      }
-    }
-
-  }
-
-  if (hexo-config('style.scroll.progress_bar.enable') == true) {
-
-    .scroll-progress-bar {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0;
-      height: $scroll-progress-bar-height;
-      visibility: hidden;
-      z-index: $z-index-7;
-      background: var(--primary-color);
-      transition-t("width", "0", "0.1", "linear");
-
-      &.hide {
-        display: none !important;
-      }
-    }
-
-  }
-}
 
 <main class="page-container">
 
@@ -214,7 +146,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">通用技术学考知识表</span>
+            <span class="title-hover-animation">Hexo和GitHub Pages自动化</span>
         </div>
 
         
@@ -232,7 +164,7 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-02-16 00:00:00
+        <i class="fas fa-edit"></i>&nbsp;2020-12-31 00:00:00
     </span>
     
         <span class="article-categories article-meta-item">
@@ -240,7 +172,7 @@
             <ul>
                 
                     <li>
-                        <a href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>&nbsp;
+                        <a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>&nbsp;
                     </li>
                 
             </ul>
@@ -252,15 +184,15 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/%E9%80%9A%E7%94%A8%E6%8A%80%E6%9C%AF/">通用技术</a>&nbsp;
+                        <a href="/tags/Hexo/">Hexo</a>&nbsp;
                     </li>
                 
                     <li>
-                        | <a href="/tags/%E9%AB%98%E4%B8%AD/">高中</a>&nbsp;
+                        | <a href="/tags/Git/">Git</a>&nbsp;
                     </li>
                 
                     <li>
-                        | <a href="/tags/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/">思维导图</a>&nbsp;
+                        | <a href="/tags/PowerShell/">PowerShell</a>&nbsp;
                     </li>
                 
             </ul>
@@ -270,7 +202,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>103 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>404 字</span>
         </span>
     
     
@@ -291,9 +223,21 @@
         
 
         <div class="article-content markdown-body">
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>没有人能够不漏任何细节地把一件事物完全记住，所以我们需要<strong>笔记</strong>；结构化是编程带给我们的一大启发，所以我们需要<strong>思维导图</strong>这种自然的结构化模型。通用技术的学考部分很杂啊……而且容易对，容易错，分值大。故特地整理了笔记在这。</p>
-<h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><iframe src="http://www.xmind.net/embed/YyPZ5Z" width="900px" height="600px" frameborder="0" scrolling="no"></iframe>
-
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>个人博客是展示自己的一个平台。自己搭建博客有着很强的<strong>可定制性</strong>，同时也很能彰显<strong>开发者</strong>的身份特征。</p>
+<p>我对前端知之甚少，所以一开始就只是Fork了一个仓库，在里面加了几篇文章而已。后来想搞一个评论功能，但是却发现很困难。一个懂前端的同学建议我不要用<code>Jekyll</code>——原来我一直在用<code>Jekyll</code>啊——而去用<code>Hexo</code>。</p>
+<p>我于是“蹒跚学步”，终于成功迁移到了<code>Hexo</code>上。</p>
+<p>为了配合<code>Hexo</code>和<code>GitHub Pages</code>，我按照<a class="link"   target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/one-command-deployment" >官方文档<i class="fas fa-external-link-alt"></i></a>，安装了个<a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-deployer-git"><code>hexo-deploy-git</code></a>，本地编辑一下，要部署的时候就直接<code>hexo clean &amp;&amp; hexo deploy</code>——方便快捷，用得我“不亦乐乎”。</p>
+<p>但是我随后发现，每次<code>push</code>到<code>GitHub</code>上面的并不是整个文件夹，而只是编辑好的<code>public</code>文件夹。这不很安全，会面临<strong>数据丢失</strong>的风险。</p>
+<p>我因此决定<strong>自定义部署</strong>，更好符合我的需求。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>本地在不对原来文件进行任何更改的情况下，另建一个仓库，桥接原有文件和<code>GitHub</code>仓库。把一个仓库分成两个分支，<code>main</code>分支用来放编译好后的文件<code>/public/*</code>，<code>source</code>分支放必要的——也就是去掉<code>.gitignore</code>中的目录后的——源文件。</p>
+<p>每一次更新主要分为四步：</p>
+<ol>
+<li><code>Hexo</code>进行编译。</li>
+<li>根据原有文件更新本地仓库。</li>
+<li>根据本地仓库更新<code>GitHub</code>仓库。</li>
+<li><code>GitHub Pages</code>进行部署。</li>
+</ol>
+<h2 id="成果"><a href="#成果" class="headerlink" title="成果"></a>成果</h2><p>我写了<a class="link"   target="_blank" rel="noopener" href="https://github.com/dawnchan030920/Hexage" >PowerShell脚本<i class="fas fa-external-link-alt"></i></a>，欢迎大家下载~</p>
 
         </div>
 
@@ -301,11 +245,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：通用技术学考知识表</li>
+        <li>本文标题：Hexo和GitHub Pages自动化</li>
         <li>本文作者：Dawn Chan</li>
-        <li>创建时间：2021-02-16 00:00:00</li>
+        <li>创建时间：2020-12-31 00:00:00</li>
         <li>
-            本文链接：https://keep.xpoet.cn/posts/53059
+            本文链接：https://keep.xpoet.cn/posts/4620/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -319,14 +263,29 @@
         
             <div class="article-nav">
                 
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/posts/53059/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">通用技术学考知识表</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/posts/4620"
+                           href="/posts/1503/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Hexo和GitHub Pages自动化</span>
+                                <span class="post-nav-title-item">UML已死，UML万岁</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -457,7 +416,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE"><span class="nav-number">2.</span> <span class="nav-text">思维导图</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%90%E6%9E%9C"><span class="nav-number">3.</span> <span class="nav-text">成果</span></a></li></ol>
     </div>
 </div>
         </aside>

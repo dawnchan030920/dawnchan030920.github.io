@@ -13,8 +13,8 @@
   
   <entry>
     <title>通用技术学考知识表</title>
-    <link href="http://example.com/posts/53059"/>
-    <id>http://example.com/posts/53059</id>
+    <link href="http://example.com/posts/53059/"/>
+    <id>http://example.com/posts/53059/</id>
     <published>2021-02-15T16:00:00.000Z</published>
     <updated>2021-02-19T06:54:51.354Z</updated>
     
@@ -41,8 +41,8 @@
   
   <entry>
     <title>Hexo和GitHub Pages自动化</title>
-    <link href="http://example.com/posts/4620"/>
-    <id>http://example.com/posts/4620</id>
+    <link href="http://example.com/posts/4620/"/>
+    <id>http://example.com/posts/4620/</id>
     <published>2020-12-30T16:00:00.000Z</published>
     <updated>2021-02-19T06:54:51.331Z</updated>
     
@@ -69,8 +69,8 @@
   
   <entry>
     <title>UML已死，UML万岁</title>
-    <link href="http://example.com/posts/1503"/>
-    <id>http://example.com/posts/1503</id>
+    <link href="http://example.com/posts/1503/"/>
+    <id>http://example.com/posts/1503/</id>
     <published>2020-12-23T16:00:00.000Z</published>
     <updated>2021-02-19T06:54:51.348Z</updated>
     
@@ -93,8 +93,8 @@
   
   <entry>
     <title>不现实的无纸化办公</title>
-    <link href="http://example.com/posts/20170"/>
-    <id>http://example.com/posts/20170</id>
+    <link href="http://example.com/posts/20170/"/>
+    <id>http://example.com/posts/20170/</id>
     <published>2020-03-12T16:00:00.000Z</published>
     <updated>2021-02-19T06:54:51.351Z</updated>
     
