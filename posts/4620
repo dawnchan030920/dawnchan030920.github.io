@@ -9,7 +9,7 @@
     
     <title>
         
-            不现实的无纸化办公 |
+            Hexo和GitHub Pages自动化 |
         
         Dawn Chan&#39;s
     </title>
@@ -27,12 +27,80 @@
 
 
 <body>
-<div class="progress-bar-container">
-    
+.progress-bar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: $z-index-9;
 
-    
-</div>
+  if (hexo-config('pjax.enable') == true) {
 
+    .pjax-progress-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 0;
+      background: var(--pjax-progress-bar-color);
+      visibility: hidden;
+      opacity: 0;
+      z-index: $z-index-8;
+      transition-t("width", "0", "0.1", "linear");
+
+
+      &.show {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+
+    .pjax-progress-icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: $z-index-8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 6px 0 0;
+      visibility: hidden;
+      font-size: 1.1rem;
+      color: var(--default-text-color);
+
+      +keep-tablet() {
+        padding: 6px 5px 0 0;
+        font-size: 1rem;
+      }
+
+      &.show {
+        visibility: visible;
+      }
+    }
+
+  }
+
+  if (hexo-config('style.scroll.progress_bar.enable') == true) {
+
+    .scroll-progress-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: $scroll-progress-bar-height;
+      visibility: hidden;
+      z-index: $z-index-7;
+      background: var(--primary-color);
+      transition-t("width", "0", "0.1", "linear");
+
+      &.hide {
+        display: none !important;
+      }
+    }
+
+  }
+}
 
 <main class="page-container">
 
@@ -146,7 +214,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">不现实的无纸化办公</span>
+            <span class="title-hover-animation">Hexo和GitHub Pages自动化</span>
         </div>
 
         
@@ -164,7 +232,7 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2020-03-13 00:00:00
+        <i class="fas fa-edit"></i>&nbsp;2020-12-31 00:00:00
     </span>
     
         <span class="article-categories article-meta-item">
@@ -172,7 +240,7 @@
             <ul>
                 
                     <li>
-                        <a href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a>&nbsp;
+                        <a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>&nbsp;
                     </li>
                 
             </ul>
@@ -184,7 +252,15 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/%E6%9C%AA%E6%95%B4%E7%90%86/">未整理</a>&nbsp;
+                        <a href="/tags/Hexo/">Hexo</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Git/">Git</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/PowerShell/">PowerShell</a>&nbsp;
                     </li>
                 
             </ul>
@@ -194,12 +270,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>1.2k 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>404 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>4 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
         </span>
     
     
@@ -215,29 +291,21 @@
         
 
         <div class="article-content markdown-body">
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>很早之前就有人提出了无纸化办公的概念。随着信息技术、互联网技术的发展、以及持续的科学大爆炸给人类带来的自豪感、满足感，人们逐渐觉得：无纸化办公是理应现实的。当然——这些人恐怕是没有亲自尝试过，因为我所碰到的所有人——包括我自己——都告诉我——没有纸而只有电脑和网络的世界事实上是很不方便的。</p>
-<p>这对于理想主义者来说当然是十分离奇的：电脑、互联网以及其它各种新技术的诞生，难道不就是为了、也不正在便利着人们的生活吗？为什么还会出现这样的情况呢？</p>
-<p>这时一定就会有人说了：因为大部分人不会用电脑，或是没有好的设备——但这并不代表无纸化办公不现实！</p>
-<p>他（她）看来是觉得现实不现实是理论上的了；可恰恰相反：</p>
-<blockquote>
-<p>现不现实往往不是想象的、理论上的、“应该的”；现实中不可控的、真实存在的因素才是“现实性”的体现。</p>
-</blockquote>
-<p><strong>当一些“误差”大到可以显性地影响人们生活了，这些误差还应该被忽略吗？</strong></p>
-<h2 id="现代办公软件高门槛"><a href="#现代办公软件高门槛" class="headerlink" title="现代办公软件高门槛"></a>现代办公软件高门槛</h2><p>我不觉得有多少人用正版Office 365。如果能用微软或者谷歌全家桶，无纸化办公的体验是不会差的。但是这只是如果。现实和想法是割裂的；全家桶的良好体验和价格、学习曲线等相比，诱惑力黯淡。</p>
-<h3 id="价格"><a href="#价格" class="headerlink" title="价格"></a>价格</h3><p>谁都知道Office 365很贵。微软的广告天花乱坠、美轮美奂。但那只是有钱人的现实——普通人的梦。</p>
-<h3 id="学习曲线"><a href="#学习曲线" class="headerlink" title="学习曲线"></a>学习曲线</h3><p>Office全家桶软件有多少个？Word，Excel，PowerPoint ，Yammer，Project，Flow，Sway，OneNote，Visio，Team，Access，Outlook，Publisher……如果你能熟练掌握、协同操作这一系列软件，那么用起来一定是如鱼得水。可是这里面没有多少软件是常用的——有的（比如Flow）可能只是为了处理一次——但却要付出更多的努力；常用的软件也不会开发出所有功能——大概只是码码字，做几张幻灯片，列一张清单而已。过度丰富的功能开始拔高学习曲线了。</p>
-<p>无纸化办公想要用得好，<strong>前期</strong>的环境搭建很重要。但是需求都是中途跳出来的，不会允许你把所有的都提前安排好。由于软件产品本身固有的复杂性，软件在提高本身生产力的同时也不可避免会增加琐碎事情的数量、复杂程度。</p>
-<h3 id="设备"><a href="#设备" class="headerlink" title="设备"></a>设备</h3><p>微软的广告向来是很富有科技感的——但是又有多少人有触屏电脑、电子笔呢？</p>
-<h3 id="网络长城"><a href="#网络长城" class="headerlink" title="网络长城"></a>网络长城</h3><p>这是最直接的。你不可能用Office Online服务（包括OneDrive）。你也用不了Google系列软件。没话说；你只能用一个广告多多、功能缺失的WPS。</p>
-<h2 id="云端存储割裂"><a href="#云端存储割裂" class="headerlink" title="云端存储割裂"></a>云端存储割裂</h2><p>有多少人是用U盘储存文件的？又有多少人是用U盘储存<strong>需要拷贝</strong>的文件的？这就已经很混乱了。试想：你在电脑里有v1的文件，拷贝了v1的去修改成为了v2，然后突然发现用云更方便，于是就把v2放到了云上，回家修改；第二天又去修改，结果没有网了，只好拿出v1，心里想着“反正v2也没有改什么东西”，修改出了v3……</p>
-<p>又是一天，你觉得自己应该吧所有的东西都放在云上，就不会混乱的，这时候你发现它竟然要订阅！于是你就挑选了一些放在上面，<strong>存储割裂</strong>的恐怖境地就这样延续了下去……</p>
-<p>哪些东西在本地，哪些在云端？是真子集关系，还是相等关系，还是空交关系，或是有所重叠？没有一个完整的记录（也很难有一个完整的记录），因此云端存储对于那些在本地已经有了大量文档、需求十分灵活的人来说门槛极高。当然如果你一直都在里面，那么这反而是适应灵活需求的客户的。还是那句话，软件本身的复杂性导致的不可避免的结果。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
-<li>软件本身的复杂性，导致了<strong>高门槛</strong>、<strong>高后期使用效率</strong>、<strong>高维护成本</strong>的无纸化办公形式。</li>
-<li>无纸化办公的想法比较先进，甚至对于现在的<strong>想法</strong>来说已经算是比较落伍的了。但是硬件、经济水平等等的设施还是跟不上的。</li>
-<li>无纸化办公早晚会来，但是纸上办公绝对不会消亡。</li>
-<li>永远不要给现实找借口。</li>
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>个人博客是展示自己的一个平台。自己搭建博客有着很强的<strong>可定制性</strong>，同时也很能彰显<strong>开发者</strong>的身份特征。</p>
+<p>我对前端知之甚少，所以一开始就只是Fork了一个仓库，在里面加了几篇文章而已。后来想搞一个评论功能，但是却发现很困难。一个懂前端的同学建议我不要用<code>Jekyll</code>——原来我一直在用<code>Jekyll</code>啊——而去用<code>Hexo</code>。</p>
+<p>我于是“蹒跚学步”，终于成功迁移到了<code>Hexo</code>上。</p>
+<p>为了配合<code>Hexo</code>和<code>GitHub Pages</code>，我按照<a class="link"   target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/one-command-deployment" >官方文档<i class="fas fa-external-link-alt"></i></a>，安装了个<a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-deployer-git"><code>hexo-deploy-git</code></a>，本地编辑一下，要部署的时候就直接<code>hexo clean &amp;&amp; hexo deploy</code>——方便快捷，用得我“不亦乐乎”。</p>
+<p>但是我随后发现，每次<code>push</code>到<code>GitHub</code>上面的并不是整个文件夹，而只是编辑好的<code>public</code>文件夹。这不很安全，会面临<strong>数据丢失</strong>的风险。</p>
+<p>我因此决定<strong>自定义部署</strong>，更好符合我的需求。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>本地在不对原来文件进行任何更改的情况下，另建一个仓库，桥接原有文件和<code>GitHub</code>仓库。把一个仓库分成两个分支，<code>main</code>分支用来放编译好后的文件<code>/public/*</code>，<code>source</code>分支放必要的——也就是去掉<code>.gitignore</code>中的目录后的——源文件。</p>
+<p>每一次更新主要分为四步：</p>
+<ol>
+<li><code>Hexo</code>进行编译。</li>
+<li>根据原有文件更新本地仓库。</li>
+<li>根据本地仓库更新<code>GitHub</code>仓库。</li>
+<li><code>GitHub Pages</code>进行部署。</li>
 </ol>
+<h2 id="成果"><a href="#成果" class="headerlink" title="成果"></a>成果</h2><p>我写了<a class="link"   target="_blank" rel="noopener" href="https://github.com/dawnchan030920/Hexage" >PowerShell脚本<i class="fas fa-external-link-alt"></i></a>，欢迎大家下载~</p>
 
         </div>
 
@@ -245,11 +313,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：不现实的无纸化办公</li>
+        <li>本文标题：Hexo和GitHub Pages自动化</li>
         <li>本文作者：Dawn Chan</li>
-        <li>创建时间：2020-03-13 00:00:00</li>
+        <li>创建时间：2020-12-31 00:00:00</li>
         <li>
-            本文链接：https://keep.xpoet.cn/2020/03/13/不现实的无纸化办公/
+            本文链接：https://keep.xpoet.cn/posts/4620
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -266,18 +334,33 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2020/12/24/UML%E5%B7%B2%E6%AD%BB%EF%BC%8CUML%E4%B8%87%E5%B2%81/"
+                           href="/posts/53059"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">UML已死，UML万岁</span>
+                                <span class="post-nav-title-item">通用技术学考知识表</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
                     </div>
                 
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/posts/1503"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">UML已死，UML万岁</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
                 
             </div>
         
@@ -401,7 +484,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%B0%E4%BB%A3%E5%8A%9E%E5%85%AC%E8%BD%AF%E4%BB%B6%E9%AB%98%E9%97%A8%E6%A7%9B"><span class="nav-number">2.</span> <span class="nav-text">现代办公软件高门槛</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%B7%E6%A0%BC"><span class="nav-number">2.1.</span> <span class="nav-text">价格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E6%9B%B2%E7%BA%BF"><span class="nav-number">2.2.</span> <span class="nav-text">学习曲线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E5%A4%87"><span class="nav-number">2.3.</span> <span class="nav-text">设备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E9%95%BF%E5%9F%8E"><span class="nav-number">2.4.</span> <span class="nav-text">网络长城</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%91%E7%AB%AF%E5%AD%98%E5%82%A8%E5%89%B2%E8%A3%82"><span class="nav-number">3.</span> <span class="nav-text">云端存储割裂</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%90%E6%9E%9C"><span class="nav-number">3.</span> <span class="nav-text">成果</span></a></li></ol>
     </div>
 </div>
         </aside>

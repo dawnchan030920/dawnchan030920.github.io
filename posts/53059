@@ -9,7 +9,7 @@
     
     <title>
         
-            UML已死，UML万岁 |
+            通用技术学考知识表 |
         
         Dawn Chan&#39;s
     </title>
@@ -27,12 +27,80 @@
 
 
 <body>
-<div class="progress-bar-container">
-    
+.progress-bar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: $z-index-9;
 
-    
-</div>
+  if (hexo-config('pjax.enable') == true) {
 
+    .pjax-progress-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 0;
+      background: var(--pjax-progress-bar-color);
+      visibility: hidden;
+      opacity: 0;
+      z-index: $z-index-8;
+      transition-t("width", "0", "0.1", "linear");
+
+
+      &.show {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+
+    .pjax-progress-icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: $z-index-8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 6px 0 0;
+      visibility: hidden;
+      font-size: 1.1rem;
+      color: var(--default-text-color);
+
+      +keep-tablet() {
+        padding: 6px 5px 0 0;
+        font-size: 1rem;
+      }
+
+      &.show {
+        visibility: visible;
+      }
+    }
+
+  }
+
+  if (hexo-config('style.scroll.progress_bar.enable') == true) {
+
+    .scroll-progress-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: $scroll-progress-bar-height;
+      visibility: hidden;
+      z-index: $z-index-7;
+      background: var(--primary-color);
+      transition-t("width", "0", "0.1", "linear");
+
+      &.hide {
+        display: none !important;
+      }
+    }
+
+  }
+}
 
 <main class="page-container">
 
@@ -146,7 +214,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">UML已死，UML万岁</span>
+            <span class="title-hover-animation">通用技术学考知识表</span>
         </div>
 
         
@@ -164,7 +232,7 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2020-12-24 00:00:00
+        <i class="fas fa-edit"></i>&nbsp;2021-02-16 00:00:00
     </span>
     
         <span class="article-categories article-meta-item">
@@ -172,7 +240,7 @@
             <ul>
                 
                     <li>
-                        <a href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a>&nbsp;
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>&nbsp;
                     </li>
                 
             </ul>
@@ -184,7 +252,15 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/UML/">UML</a>&nbsp;
+                        <a href="/tags/%E9%80%9A%E7%94%A8%E6%8A%80%E6%9C%AF/">通用技术</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E9%AB%98%E4%B8%AD/">高中</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/">思维导图</a>&nbsp;
                     </li>
                 
             </ul>
@@ -194,12 +270,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>1.6k 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>103 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>5 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
         </span>
     
     
@@ -215,43 +291,9 @@
         
 
         <div class="article-content markdown-body">
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>UML是好是坏、有用无用，从来没有过统一的意见；我想未来也不会有。有人把UML捧上神坛，也有的人高举“UML无用论”的大旗。当然，从辩证的角度来看，UML绝对不是“有用”或“没有用”就可以概括的；它有贡献，也有缺陷。</p>
-<p>于我而言，我则想套用一句著名的话来概括：</p>
-<p><strong>UML已死，UML万岁。</strong></p>
-<h2 id="贡献和意义"><a href="#贡献和意义" class="headerlink" title="贡献和意义"></a>贡献和意义</h2><blockquote>
-<p>建模，就是建立模型，就是为了理解事物而对事物做出的一种抽象，是对事物的一种无歧义的书面描述。</p>
-</blockquote>
-<h3 id="思考，而非写"><a href="#思考，而非写" class="headerlink" title="思考，而非写"></a>思考，而非写</h3><p>文学创作是写字吗？显然不是；文字只是文学创作的突出特征和最主要载体。</p>
-<p>开发软件是写代码吗？这显然也是片面的。代码是软件的原材料，但是代码并不能指定自身的组织方式、实现功能种种。</p>
-<p>我们需要思考软件，而不只是写软件。</p>
-<p>UML就给人们提供了思考软件的范式，也就是<strong>建模思路</strong>。这是UML的<strong>核心和真正价值</strong>所在。</p>
-<h3 id="思想价值"><a href="#思想价值" class="headerlink" title="思想价值"></a>思想价值</h3><p>UML给人们提供了<strong>连接宏微观的、多样而全面的、广泛认同的、图形完整的</strong>思考<strong>软件本身</strong>的角度，奠定了大型软件开发设计的<strong>思想</strong>基础。</p>
-<h4 id="连接宏微观"><a href="#连接宏微观" class="headerlink" title="连接宏微观"></a>连接宏微观</h4><p>人的思维具有天生的<strong>宏观性</strong>，一个看似小巧的功能往往是许多代码的集合。但是人的思维也具有<strong>陷入微观的惯性</strong>，一个设计决策的会议很容易变成技术细节的争论，尽管设计的确需要技术层面的支持。</p>
-<p>而UML很好的统一了宏观和微观两者。</p>
-<p>一方面，UML使得人们能够较为<strong>流畅和完整地表达想法</strong>，而不会受限于语言、平台等技术细节。</p>
-<p>另一方面，在人们利用UML表达的同时，其实也就开始思考软件的实现，为软件的开发制定了一个并<strong>不完善、但是非常重要的蓝图</strong>。</p>
-<h4 id="多样性和普适性"><a href="#多样性和普适性" class="headerlink" title="多样性和普适性"></a>多样性和普适性</h4><p>软件除了代码之外，还包括它的实现功能、组织方式种种。我们不可能找到一颗“银弹”，用一种统一的方式来描述这个软件。这是由软件本身传达的信息类型的多样性决定的；更根本地说，是由于人的意识本身的复杂性决定的。</p>
-<p>UML对于人们找到的一些描述软件的模型进行了<strong>修改与筛选</strong>，使得这些模型在现有范围内能够以较少类型<strong>传递尽可能多的信息</strong>，同时<strong>避免大量的交集冗余</strong>。</p>
-<h4 id="广泛认同性"><a href="#广泛认同性" class="headerlink" title="广泛认同性"></a>广泛认同性</h4><p>UML的建模思想和角度不是独创的，而是<strong>总结</strong>出来的，是人们在长期历史实践当中产生的，是符合人们的思维的，因此有着良好的基础，很容易<strong>理解</strong>，也很容易<strong>应用</strong>。</p>
-<h4 id="图形完整性"><a href="#图形完整性" class="headerlink" title="图形完整性"></a>图形完整性</h4><p>软件的本质是信息。软件建模的关键就是保障信息传递的<strong>损耗达到最小</strong>。</p>
-<p>举一个例子说，我经常会遇到不同东西之间的交互。在了解“序列图”之前，我往往会画几个方块来表示这些事物，用一些相连的线来表达通信。但是如果我想要表示一个有多个事物多次协作完成的完整过程，我往往无法表达，甚至于遗漏信息。序列图则列举了这些信息，可以达到“最低损耗”的要求。</p>
-<h3 id="现实的证明"><a href="#现实的证明" class="headerlink" title="现实的证明"></a>现实的证明</h3><p>类图随着类图思想的深入人心早已普及。<br>上面举到的“序列图”的例子确实帮助我用更完整的头脑思考交互。<br>状态图、配置文件图等等也是对软件各个方面非常优秀的建模方案，可以很好地满足软件建模的需求。</p>
-<p>UML的很多思想早已经渗透，只是被它的有些可笑的学究表面遮盖了而已。</p>
-<h2 id="缺陷和边缘化"><a href="#缺陷和边缘化" class="headerlink" title="缺陷和边缘化"></a>缺陷和边缘化</h2><p>UML作为一个促进思考的工具是具有突破性意义的。但是作为一门“图形建模语言”，它是失败的——或者更根本地说，本身就是不合适的。除此之外，它也遗留了一些其它问题，同时还面临着形式被时代抛弃的窘境。</p>
-<h3 id="图形系统膨胀"><a href="#图形系统膨胀" class="headerlink" title="图形系统膨胀"></a>图形系统膨胀</h3><p>本来用图形语言进行建模是一种非常自然的行为，但是<strong>过于死板、复杂、细碎的图形标准</strong>会让建模过程变得脱离自然、甚至枯燥。</p>
-<h3 id="商业化严重"><a href="#商业化严重" class="headerlink" title="商业化严重"></a>商业化严重</h3><p>作为一项建模语言，商业化既满足了一段时间内个人或企业对于使用UML的需求，同时却也将UML推向了产业化使用的坟墓。</p>
-<p>究其原因，是因为：UML商业化——即UML工业制作软件的需求本质上<strong>源于UML图形系统的膨胀</strong>。这让UML并没有集中力量解决这一自身问题，导致它没能做到与时俱进。</p>
-<h3 id="当代软件需求变化"><a href="#当代软件需求变化" class="headerlink" title="当代软件需求变化"></a>当代软件需求变化</h3><p>当代软件用户群体的变化导致了软件类型、特征在比例上的变化，导致了开发过程的改变，削弱了UML作为一门语言的用处。</p>
-<h2 id="态度"><a href="#态度" class="headerlink" title="态度"></a>态度</h2><blockquote>
-<p>世界观决定方法论。<br>“哲学家的工作是认识世界,但更重要的是改造世界！”</p>
-</blockquote>
-<h3 id="扬弃"><a href="#扬弃" class="headerlink" title="扬弃"></a>扬弃</h3><blockquote>
-<p>说英语的人比说中文的人对于时态有更加清晰的概念。就算会很多单词，如果没有掌握时态，不过也是Chinglish，不是真正的English speaker。</p>
-</blockquote>
-<p>UML给人们最大的宝藏，就是<strong>建模语言本身</strong>。作为一门语言，它显得过于臃肿、并不那么实用；但是其中的建模概念为人们打开了一扇窗户，让人们得以用“专业术语”观察和思考软件。换句话说，<strong>这个语言不是让人们说的，而是让人们用这种方式思考。说出来反而影响了思考。</strong></p>
-<p>另外，UML作为<strong>展示</strong>软件架构的载体也是一个非常好用的工具。</p>
-<h3 id="与其它的关系"><a href="#与其它的关系" class="headerlink" title="与其它的关系"></a>与其它的关系</h3><p>UML应当吸收系统论、控制论等等学科。因为软件开发本身就是一门交叉学科。</p>
-<p><strong>UML已死，UML万岁!</strong></p>
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>没有人能够不漏任何细节地把一件事物完全记住，所以我们需要<strong>笔记</strong>；结构化是编程带给我们的一大启发，所以我们需要<strong>思维导图</strong>这种自然的结构化模型。通用技术的学考部分很杂啊……而且容易对，容易错，分值大。故特地整理了笔记在这。</p>
+<h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><iframe src="http://www.xmind.net/embed/YyPZ5Z" width="900px" height="600px" frameborder="0" scrolling="no"></iframe>
+
 
         </div>
 
@@ -259,11 +301,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：UML已死，UML万岁</li>
+        <li>本文标题：通用技术学考知识表</li>
         <li>本文作者：Dawn Chan</li>
-        <li>创建时间：2020-12-24 00:00:00</li>
+        <li>创建时间：2021-02-16 00:00:00</li>
         <li>
-            本文链接：https://keep.xpoet.cn/2020/12/24/UML已死，UML万岁/
+            本文链接：https://keep.xpoet.cn/posts/53059
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -277,29 +319,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2020/12/31/Hexo%E5%92%8CGitHub%20Pages%E8%87%AA%E5%8A%A8%E5%8C%96/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">Hexo和GitHub Pages自动化</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2020/03/13/%E4%B8%8D%E7%8E%B0%E5%AE%9E%E7%9A%84%E6%97%A0%E7%BA%B8%E5%8C%96%E5%8A%9E%E5%85%AC/"
+                           href="/posts/4620"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">不现实的无纸化办公</span>
+                                <span class="post-nav-title-item">Hexo和GitHub Pages自动化</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -430,7 +457,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B4%A1%E7%8C%AE%E5%92%8C%E6%84%8F%E4%B9%89"><span class="nav-number">2.</span> <span class="nav-text">贡献和意义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%80%83%EF%BC%8C%E8%80%8C%E9%9D%9E%E5%86%99"><span class="nav-number">2.1.</span> <span class="nav-text">思考，而非写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E6%83%B3%E4%BB%B7%E5%80%BC"><span class="nav-number">2.2.</span> <span class="nav-text">思想价值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E5%AE%8F%E5%BE%AE%E8%A7%82"><span class="nav-number">2.2.1.</span> <span class="nav-text">连接宏微观</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E6%A0%B7%E6%80%A7%E5%92%8C%E6%99%AE%E9%80%82%E6%80%A7"><span class="nav-number">2.2.2.</span> <span class="nav-text">多样性和普适性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B9%BF%E6%B3%9B%E8%AE%A4%E5%90%8C%E6%80%A7"><span class="nav-number">2.2.3.</span> <span class="nav-text">广泛认同性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%BE%E5%BD%A2%E5%AE%8C%E6%95%B4%E6%80%A7"><span class="nav-number">2.2.4.</span> <span class="nav-text">图形完整性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%B0%E5%AE%9E%E7%9A%84%E8%AF%81%E6%98%8E"><span class="nav-number">2.3.</span> <span class="nav-text">现实的证明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%BA%E9%99%B7%E5%92%8C%E8%BE%B9%E7%BC%98%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">缺陷和边缘化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E5%BD%A2%E7%B3%BB%E7%BB%9F%E8%86%A8%E8%83%80"><span class="nav-number">3.1.</span> <span class="nav-text">图形系统膨胀</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%95%86%E4%B8%9A%E5%8C%96%E4%B8%A5%E9%87%8D"><span class="nav-number">3.2.</span> <span class="nav-text">商业化严重</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BD%93%E4%BB%A3%E8%BD%AF%E4%BB%B6%E9%9C%80%E6%B1%82%E5%8F%98%E5%8C%96"><span class="nav-number">3.3.</span> <span class="nav-text">当代软件需求变化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%81%E5%BA%A6"><span class="nav-number">4.</span> <span class="nav-text">态度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%AC%E5%BC%83"><span class="nav-number">4.1.</span> <span class="nav-text">扬弃</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8E%E5%85%B6%E5%AE%83%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">4.2.</span> <span class="nav-text">与其它的关系</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE"><span class="nav-number">2.</span> <span class="nav-text">思维导图</span></a></li></ol>
     </div>
 </div>
         </aside>

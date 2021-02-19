@@ -25,12 +25,80 @@
 
 
 <body>
-<div class="progress-bar-container">
-    
+.progress-bar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: $z-index-9;
 
-    
-</div>
+  if (hexo-config('pjax.enable') == true) {
 
+    .pjax-progress-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 0;
+      background: var(--pjax-progress-bar-color);
+      visibility: hidden;
+      opacity: 0;
+      z-index: $z-index-8;
+      transition-t("width", "0", "0.1", "linear");
+
+
+      &.show {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+
+    .pjax-progress-icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: $z-index-8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 6px 0 0;
+      visibility: hidden;
+      font-size: 1.1rem;
+      color: var(--default-text-color);
+
+      +keep-tablet() {
+        padding: 6px 5px 0 0;
+        font-size: 1rem;
+      }
+
+      &.show {
+        visibility: visible;
+      }
+    }
+
+  }
+
+  if (hexo-config('style.scroll.progress_bar.enable') == true) {
+
+    .scroll-progress-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: $scroll-progress-bar-height;
+      visibility: hidden;
+      z-index: $z-index-7;
+      background: var(--primary-color);
+      transition-t("width", "0", "0.1", "linear");
+
+      &.hide {
+        display: none !important;
+      }
+    }
+
+  }
+}
 
 <main class="page-container">
 
@@ -194,7 +262,7 @@
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/02/16/%E9%80%9A%E7%94%A8%E6%8A%80%E6%9C%AF%E5%AD%A6%E8%80%83%E7%9F%A5%E8%AF%86%E8%A1%A8/">
+                    <a href="/posts/53059">
                         通用技术学考知识表
                     </a>
                 </h3>
@@ -249,7 +317,7 @@
         
     </div>
 
-    <a href="/2021/02/16/%E9%80%9A%E7%94%A8%E6%8A%80%E6%9C%AF%E5%AD%A6%E8%80%83%E7%9F%A5%E8%AF%86%E8%A1%A8/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/posts/53059">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -259,7 +327,7 @@
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2020/12/31/Hexo%E5%92%8CGitHub%20Pages%E8%87%AA%E5%8A%A8%E5%8C%96/">
+                    <a href="/posts/4620">
                         Hexo和GitHub Pages自动化
                     </a>
                 </h3>
@@ -312,7 +380,7 @@
         
     </div>
 
-    <a href="/2020/12/31/Hexo%E5%92%8CGitHub%20Pages%E8%87%AA%E5%8A%A8%E5%8C%96/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/posts/4620">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -322,7 +390,7 @@
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2020/12/24/UML%E5%B7%B2%E6%AD%BB%EF%BC%8CUML%E4%B8%87%E5%B2%81/">
+                    <a href="/posts/1503">
                         UML已死，UML万岁
                     </a>
                 </h3>
@@ -365,7 +433,7 @@
         
     </div>
 
-    <a href="/2020/12/24/UML%E5%B7%B2%E6%AD%BB%EF%BC%8CUML%E4%B8%87%E5%B2%81/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/posts/1503">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -375,7 +443,7 @@
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2020/03/13/%E4%B8%8D%E7%8E%B0%E5%AE%9E%E7%9A%84%E6%97%A0%E7%BA%B8%E5%8C%96%E5%8A%9E%E5%85%AC/">
+                    <a href="/posts/20170">
                         不现实的无纸化办公
                     </a>
                 </h3>
@@ -417,7 +485,7 @@
         
     </div>
 
-    <a href="/2020/03/13/%E4%B8%8D%E7%8E%B0%E5%AE%9E%E7%9A%84%E6%97%A0%E7%BA%B8%E5%8C%96%E5%8A%9E%E5%85%AC/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/posts/20170">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
