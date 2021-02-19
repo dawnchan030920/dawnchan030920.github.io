@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title></title>
+  
+  
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2021-02-19T02:29:30.779Z</updated>
+  <id>http://example.com/</id>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>通用技术学考知识表</title>
+    <link href="http://example.com/2021/02/16/%E9%80%9A%E7%94%A8%E6%8A%80%E6%9C%AF%E5%AD%A6%E8%80%83%E7%9F%A5%E8%AF%86%E8%A1%A8/"/>
+    <id>http://example.com/2021/02/16/%E9%80%9A%E7%94%A8%E6%8A%80%E6%9C%AF%E5%AD%A6%E8%80%83%E7%9F%A5%E8%AF%86%E8%A1%A8/</id>
+    <published>2021-02-15T16:00:00.000Z</published>
+    <updated>2021-02-19T02:29:30.779Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>没有人能够不漏任何细节地把一件事物完全记住，所以我们需要<strong>笔记</strong>；结构化是编程带给我们的一大启发，所以我们需要<strong>思维导图</strong>这种自然的结构化模型。通用技术的学考部分很杂啊……而且容易对，容易错，分值大。故特地整理了笔记在这。</p><h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><iframe src="http://www.xmind.net/embed/YyPZ5Z" width="900px" height="600px" frameborder="0" scrolling="no"></iframe>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;没有人能够不漏任何细节地把一件事物完全记住，所以我们需要&lt;strong&gt;笔记&lt;/strong&gt;；结构化是编程带给我们的一大启发，所以我们需要</summary>
+      
+    
+    
+    
+    <category term="学习" scheme="http://example.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="通用技术" scheme="http://example.com/tags/%E9%80%9A%E7%94%A8%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="高中" scheme="http://example.com/tags/%E9%AB%98%E4%B8%AD/"/>
+    
+    <category term="思维导图" scheme="http://example.com/tags/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo和GitHub Pages自动化</title>
+    <link href="http://example.com/2020/12/31/Hexo%E5%92%8CGitHub%20Pages%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
+    <id>http://example.com/2020/12/31/Hexo%E5%92%8CGitHub%20Pages%E8%87%AA%E5%8A%A8%E5%8C%96/</id>
+    <published>2020-12-30T16:00:00.000Z</published>
+    <updated>2021-02-19T02:29:30.775Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>个人博客是展示自己的一个平台。自己搭建博客有着很强的<strong>可定制性</strong>，同时也很能彰显<strong>开发者</strong>的身份特征。</p><p>我对前端知之甚少，所以一开始就只是Fork了一个仓库，在里面加了几篇文章而已。后来想搞一个评论功能，但是却发现很困难。一个懂前端的同学建议我不要用<code>Jekyll</code>——原来我一直在用<code>Jekyll</code>啊——而去用<code>Hexo</code>。</p><p>我于是“蹒跚学步”，终于成功迁移到了<code>Hexo</code>上。</p><p>为了配合<code>Hexo</code>和<code>GitHub Pages</code>，我按照<a class="link"   href="https://hexo.io/zh-cn/docs/one-command-deployment" >官方文档<i class="fas fa-external-link-alt"></i></a>，安装了个<a href="https://github.com/hexojs/hexo-deployer-git"><code>hexo-deploy-git</code></a>，本地编辑一下，要部署的时候就直接<code>hexo clean &amp;&amp; hexo deploy</code>——方便快捷，用得我“不亦乐乎”。</p><p>但是我随后发现，每次<code>push</code>到<code>GitHub</code>上面的并不是整个文件夹，而只是编辑好的<code>public</code>文件夹。这不很安全，会面临<strong>数据丢失</strong>的风险。</p><p>我因此决定<strong>自定义部署</strong>，更好符合我的需求。</p><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>本地在不对原来文件进行任何更改的情况下，另建一个仓库，桥接原有文件和<code>GitHub</code>仓库。把一个仓库分成两个分支，<code>main</code>分支用来放编译好后的文件<code>/public/*</code>，<code>source</code>分支放必要的——也就是去掉<code>.gitignore</code>中的目录后的——源文件。</p><p>每一次更新主要分为四步：</p><ol><li><code>Hexo</code>进行编译。</li><li>根据原有文件更新本地仓库。</li><li>根据本地仓库更新<code>GitHub</code>仓库。</li><li><code>GitHub Pages</code>进行部署。</li></ol><pre class="mermaid">graph LRsubgraph 本地用户-->本地源文件更新subgraph 本地文件本地源文件更新-->|Hexo编译|本地网页更新endsubgraph 本地仓库本地源文件更新-->|脚本|本地仓库Source分支更新本地网页更新-->|脚本|本地仓库Main分支更新endendsubgraph GitHub仓库本地仓库Source分支更新-->|Git|GitHub仓库Source分支更新本地仓库Main分支更新-->|Git|GitHub仓库Main分支更新GitHub仓库Main分支更新-->|GitHub Pages|网页部署end用户-->|访问|网页部署</pre><h2 id="成果"><a href="#成果" class="headerlink" title="成果"></a>成果</h2><p>我写了<a class="link"   href="https://github.com/dawnchan030920/Hexage" >PowerShell脚本<i class="fas fa-external-link-alt"></i></a>，欢迎大家下载~</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;个人博客是展示自己的一个平台。自己搭建博客有着很强的&lt;strong&gt;可定制性&lt;/strong&gt;，同时也很能彰显&lt;strong&gt;开发者&lt;/st</summary>
+      
+    
+    
+    
+    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="Hexo" scheme="http://example.com/tags/Hexo/"/>
+    
+    <category term="Git" scheme="http://example.com/tags/Git/"/>
+    
+    <category term="PowerShell" scheme="http://example.com/tags/PowerShell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UML已死，UML万岁</title>
+    <link href="http://example.com/2020/12/24/UML%E5%B7%B2%E6%AD%BB%EF%BC%8CUML%E4%B8%87%E5%B2%81/"/>
+    <id>http://example.com/2020/12/24/UML%E5%B7%B2%E6%AD%BB%EF%BC%8CUML%E4%B8%87%E5%B2%81/</id>
+    <published>2020-12-23T16:00:00.000Z</published>
+    <updated>2021-02-19T02:29:30.776Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>UML是好是坏、有用无用，从来没有过统一的意见；我想未来也不会有。有人把UML捧上神坛，也有的人高举“UML无用论”的大旗。当然，从辩证的角度来看，UML绝对不是“有用”或“没有用”就可以概括的；它有贡献，也有缺陷。</p><p>于我而言，我则想套用一句著名的话来概括：</p><p><strong>UML已死，UML万岁。</strong></p><h2 id="贡献和意义"><a href="#贡献和意义" class="headerlink" title="贡献和意义"></a>贡献和意义</h2><blockquote><p>建模，就是建立模型，就是为了理解事物而对事物做出的一种抽象，是对事物的一种无歧义的书面描述。</p></blockquote><h3 id="思考，而非写"><a href="#思考，而非写" class="headerlink" title="思考，而非写"></a>思考，而非写</h3><p>文学创作是写字吗？显然不是；文字只是文学创作的突出特征和最主要载体。</p><p>开发软件是写代码吗？这显然也是片面的。代码是软件的原材料，但是代码并不能指定自身的组织方式、实现功能种种。</p><p>我们需要思考软件，而不只是写软件。</p><p>UML就给人们提供了思考软件的范式，也就是<strong>建模思路</strong>。这是UML的<strong>核心和真正价值</strong>所在。</p><h3 id="思想价值"><a href="#思想价值" class="headerlink" title="思想价值"></a>思想价值</h3><p>UML给人们提供了<strong>连接宏微观的、多样而全面的、广泛认同的、图形完整的</strong>思考<strong>软件本身</strong>的角度，奠定了大型软件开发设计的<strong>思想</strong>基础。</p><h4 id="连接宏微观"><a href="#连接宏微观" class="headerlink" title="连接宏微观"></a>连接宏微观</h4><p>人的思维具有天生的<strong>宏观性</strong>，一个看似小巧的功能往往是许多代码的集合。但是人的思维也具有<strong>陷入微观的惯性</strong>，一个设计决策的会议很容易变成技术细节的争论，尽管设计的确需要技术层面的支持。</p><p>而UML很好的统一了宏观和微观两者。</p><p>一方面，UML使得人们能够较为<strong>流畅和完整地表达想法</strong>，而不会受限于语言、平台等技术细节。</p><p>另一方面，在人们利用UML表达的同时，其实也就开始思考软件的实现，为软件的开发制定了一个并<strong>不完善、但是非常重要的蓝图</strong>。</p><h4 id="多样性和普适性"><a href="#多样性和普适性" class="headerlink" title="多样性和普适性"></a>多样性和普适性</h4><p>软件除了代码之外，还包括它的实现功能、组织方式种种。我们不可能找到一颗“银弹”，用一种统一的方式来描述这个软件。这是由软件本身传达的信息类型的多样性决定的；更根本地说，是由于人的意识本身的复杂性决定的。</p><p>UML对于人们找到的一些描述软件的模型进行了<strong>修改与筛选</strong>，使得这些模型在现有范围内能够以较少类型<strong>传递尽可能多的信息</strong>，同时<strong>避免大量的交集冗余</strong>。</p><h4 id="广泛认同性"><a href="#广泛认同性" class="headerlink" title="广泛认同性"></a>广泛认同性</h4><p>UML的建模思想和角度不是独创的，而是<strong>总结</strong>出来的，是人们在长期历史实践当中产生的，是符合人们的思维的，因此有着良好的基础，很容易<strong>理解</strong>，也很容易<strong>应用</strong>。</p><h4 id="图形完整性"><a href="#图形完整性" class="headerlink" title="图形完整性"></a>图形完整性</h4><p>软件的本质是信息。软件建模的关键就是保障信息传递的<strong>损耗达到最小</strong>。</p><p>举一个例子说，我经常会遇到不同东西之间的交互。在了解“序列图”之前，我往往会画几个方块来表示这些事物，用一些相连的线来表达通信。但是如果我想要表示一个有多个事物多次协作完成的完整过程，我往往无法表达，甚至于遗漏信息。序列图则列举了这些信息，可以达到“最低损耗”的要求。</p><h3 id="现实的证明"><a href="#现实的证明" class="headerlink" title="现实的证明"></a>现实的证明</h3><p>类图随着类图思想的深入人心早已普及。<br>上面举到的“序列图”的例子确实帮助我用更完整的头脑思考交互。<br>状态图、配置文件图等等也是对软件各个方面非常优秀的建模方案，可以很好地满足软件建模的需求。</p><p>UML的很多思想早已经渗透，只是被它的有些可笑的学究表面遮盖了而已。</p><h2 id="缺陷和边缘化"><a href="#缺陷和边缘化" class="headerlink" title="缺陷和边缘化"></a>缺陷和边缘化</h2><p>UML作为一个促进思考的工具是具有突破性意义的。但是作为一门“图形建模语言”，它是失败的——或者更根本地说，本身就是不合适的。除此之外，它也遗留了一些其它问题，同时还面临着形式被时代抛弃的窘境。</p><h3 id="图形系统膨胀"><a href="#图形系统膨胀" class="headerlink" title="图形系统膨胀"></a>图形系统膨胀</h3><p>本来用图形语言进行建模是一种非常自然的行为，但是<strong>过于死板、复杂、细碎的图形标准</strong>会让建模过程变得脱离自然、甚至枯燥。</p><h3 id="商业化严重"><a href="#商业化严重" class="headerlink" title="商业化严重"></a>商业化严重</h3><p>作为一项建模语言，商业化既满足了一段时间内个人或企业对于使用UML的需求，同时却也将UML推向了产业化使用的坟墓。</p><p>究其原因，是因为：UML商业化——即UML工业制作软件的需求本质上<strong>源于UML图形系统的膨胀</strong>。这让UML并没有集中力量解决这一自身问题，导致它没能做到与时俱进。</p><h3 id="当代软件需求变化"><a href="#当代软件需求变化" class="headerlink" title="当代软件需求变化"></a>当代软件需求变化</h3><p>当代软件用户群体的变化导致了软件类型、特征在比例上的变化，导致了开发过程的改变，削弱了UML作为一门语言的用处。</p><h2 id="态度"><a href="#态度" class="headerlink" title="态度"></a>态度</h2><blockquote><p>世界观决定方法论。<br>“哲学家的工作是认识世界,但更重要的是改造世界！”</p></blockquote><h3 id="扬弃"><a href="#扬弃" class="headerlink" title="扬弃"></a>扬弃</h3><blockquote><p>说英语的人比说中文的人对于时态有更加清晰的概念。就算会很多单词，如果没有掌握时态，不过也是Chinglish，不是真正的English speaker。</p></blockquote><p>UML给人们最大的宝藏，就是<strong>建模语言本身</strong>。作为一门语言，它显得过于臃肿、并不那么实用；但是其中的建模概念为人们打开了一扇窗户，让人们得以用“专业术语”观察和思考软件。换句话说，<strong>这个语言不是让人们说的，而是让人们用这种方式思考。说出来反而影响了思考。</strong></p><p>另外，UML作为<strong>展示</strong>软件架构的载体也是一个非常好用的工具。</p><h3 id="与其它的关系"><a href="#与其它的关系" class="headerlink" title="与其它的关系"></a>与其它的关系</h3><p>UML应当吸收系统论、控制论等等学科。因为软件开发本身就是一门交叉学科。</p><p><strong>UML已死，UML万岁!</strong></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;UML是好是坏、有用无用，从来没有过统一的意见；我想未来也不会有。有人把UML捧上神坛，也有的人高举“UML无用论”的大旗。当然，从辩证的角</summary>
+      
+    
+    
+    
+    <category term="杂谈" scheme="http://example.com/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+    <category term="UML" scheme="http://example.com/tags/UML/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>不现实的无纸化办公</title>
+    <link href="http://example.com/2020/03/13/%E4%B8%8D%E7%8E%B0%E5%AE%9E%E7%9A%84%E6%97%A0%E7%BA%B8%E5%8C%96%E5%8A%9E%E5%85%AC/"/>
+    <id>http://example.com/2020/03/13/%E4%B8%8D%E7%8E%B0%E5%AE%9E%E7%9A%84%E6%97%A0%E7%BA%B8%E5%8C%96%E5%8A%9E%E5%85%AC/</id>
+    <published>2020-03-12T16:00:00.000Z</published>
+    <updated>2021-02-19T02:29:30.778Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>很早之前就有人提出了无纸化办公的概念。随着信息技术、互联网技术的发展、以及持续的科学大爆炸给人类带来的自豪感、满足感，人们逐渐觉得：无纸化办公是理应现实的。当然——这些人恐怕是没有亲自尝试过，因为我所碰到的所有人——包括我自己——都告诉我——没有纸而只有电脑和网络的世界事实上是很不方便的。</p><p>这对于理想主义者来说当然是十分离奇的：电脑、互联网以及其它各种新技术的诞生，难道不就是为了、也不正在便利着人们的生活吗？为什么还会出现这样的情况呢？</p><p>这时一定就会有人说了：因为大部分人不会用电脑，或是没有好的设备——但这并不代表无纸化办公不现实！</p><p>他（她）看来是觉得现实不现实是理论上的了；可恰恰相反：</p><blockquote><p>现不现实往往不是想象的、理论上的、“应该的”；现实中不可控的、真实存在的因素才是“现实性”的体现。</p></blockquote><p><strong>当一些“误差”大到可以显性地影响人们生活了，这些误差还应该被忽略吗？</strong></p><h2 id="现代办公软件高门槛"><a href="#现代办公软件高门槛" class="headerlink" title="现代办公软件高门槛"></a>现代办公软件高门槛</h2><p>我不觉得有多少人用正版Office 365。如果能用微软或者谷歌全家桶，无纸化办公的体验是不会差的。但是这只是如果。现实和想法是割裂的；全家桶的良好体验和价格、学习曲线等相比，诱惑力黯淡。</p><h3 id="价格"><a href="#价格" class="headerlink" title="价格"></a>价格</h3><p>谁都知道Office 365很贵。微软的广告天花乱坠、美轮美奂。但那只是有钱人的现实——普通人的梦。</p><h3 id="学习曲线"><a href="#学习曲线" class="headerlink" title="学习曲线"></a>学习曲线</h3><p>Office全家桶软件有多少个？Word，Excel，PowerPoint ，Yammer，Project，Flow，Sway，OneNote，Visio，Team，Access，Outlook，Publisher……如果你能熟练掌握、协同操作这一系列软件，那么用起来一定是如鱼得水。可是这里面没有多少软件是常用的——有的（比如Flow）可能只是为了处理一次——但却要付出更多的努力；常用的软件也不会开发出所有功能——大概只是码码字，做几张幻灯片，列一张清单而已。过度丰富的功能开始拔高学习曲线了。</p><p>无纸化办公想要用得好，<strong>前期</strong>的环境搭建很重要。但是需求都是中途跳出来的，不会允许你把所有的都提前安排好。由于软件产品本身固有的复杂性，软件在提高本身生产力的同时也不可避免会增加琐碎事情的数量、复杂程度。</p><h3 id="设备"><a href="#设备" class="headerlink" title="设备"></a>设备</h3><p>微软的广告向来是很富有科技感的——但是又有多少人有触屏电脑、电子笔呢？</p><h3 id="网络长城"><a href="#网络长城" class="headerlink" title="网络长城"></a>网络长城</h3><p>这是最直接的。你不可能用Office Online服务（包括OneDrive）。你也用不了Google系列软件。没话说；你只能用一个广告多多、功能缺失的WPS。</p><h2 id="云端存储割裂"><a href="#云端存储割裂" class="headerlink" title="云端存储割裂"></a>云端存储割裂</h2><p>有多少人是用U盘储存文件的？又有多少人是用U盘储存<strong>需要拷贝</strong>的文件的？这就已经很混乱了。试想：你在电脑里有v1的文件，拷贝了v1的去修改成为了v2，然后突然发现用云更方便，于是就把v2放到了云上，回家修改；第二天又去修改，结果没有网了，只好拿出v1，心里想着“反正v2也没有改什么东西”，修改出了v3……</p><p>又是一天，你觉得自己应该吧所有的东西都放在云上，就不会混乱的，这时候你发现它竟然要订阅！于是你就挑选了一些放在上面，<strong>存储割裂</strong>的恐怖境地就这样延续了下去……</p><p>哪些东西在本地，哪些在云端？是真子集关系，还是相等关系，还是空交关系，或是有所重叠？没有一个完整的记录（也很难有一个完整的记录），因此云端存储对于那些在本地已经有了大量文档、需求十分灵活的人来说门槛极高。当然如果你一直都在里面，那么这反而是适应灵活需求的客户的。还是那句话，软件本身的复杂性导致的不可避免的结果。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol><li>软件本身的复杂性，导致了<strong>高门槛</strong>、<strong>高后期使用效率</strong>、<strong>高维护成本</strong>的无纸化办公形式。</li><li>无纸化办公的想法比较先进，甚至对于现在的<strong>想法</strong>来说已经算是比较落伍的了。但是硬件、经济水平等等的设施还是跟不上的。</li><li>无纸化办公早晚会来，但是纸上办公绝对不会消亡。</li><li>永远不要给现实找借口。</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;很早之前就有人提出了无纸化办公的概念。随着信息技术、互联网技术的发展、以及持续的科学大爆炸给人类带来的自豪感、满足感，人们逐渐觉得：无纸化办</summary>
+      
+    
+    
+    
+    <category term="杂谈" scheme="http://example.com/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+    <category term="未整理" scheme="http://example.com/tags/%E6%9C%AA%E6%95%B4%E7%90%86/"/>
+    
+  </entry>
+  
+</feed>
